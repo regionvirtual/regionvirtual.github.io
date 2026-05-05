@@ -172,6 +172,78 @@
       color: #e5e7eb;
     }
 
+    .project-card {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+      background: #1e293b;
+      padding: 36px;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-content h3 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .project-content p {
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .project-content ul {
+      list-style: none;
+      margin-bottom: 26px;
+    }
+
+    .project-content li {
+      margin-bottom: 10px;
+      color: #e5e7eb;
+    }
+
+    .project-preview {
+      background: linear-gradient(145deg, #f8fafc, #dbeafe);
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 280px;
+      color: #0f172a;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .preview-bar {
+      background: #0f172a;
+      padding: 14px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .preview-bar span {
+      width: 12px;
+      height: 12px;
+      background: #38bdf8;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .preview-content {
+      padding: 42px 30px;
+    }
+
+    .preview-content h4 {
+      font-size: 34px;
+      margin-bottom: 14px;
+    }
+
+    .preview-content p {
+      font-size: 18px;
+      color: #334155;
+    }
+    
     .steps {
       max-width: 900px;
       margin: 0 auto;
@@ -236,6 +308,11 @@
 
       .services {
         grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+        padding: 26px;
       }
     }
   </style>
@@ -323,6 +400,47 @@
       </div>
     </section>
 
+    <section id="portfolio">
+      <h2 class="section-title">Proyecto destacado</h2>
+      <p class="section-subtitle">
+        Un ejemplo real de página web creada con una estructura clara, profesional y adaptada al servicio ofrecido.
+      </p>
+    
+      <div class="project-card">
+        <div class="project-content">
+          <p class="tag">Psicología online</p>
+          <h3>Evy Tapia Psicóloga</h3>
+          <p>
+            Página web profesional para presentar servicios de psicoterapia online,
+            generar confianza y facilitar el contacto con potenciales pacientes.
+          </p>
+    
+          <ul>
+            <li>✔ Diseño visual personalizado</li>
+            <li>✔ Estructura clara por secciones</li>
+            <li>✔ Adaptada a móvil</li>
+            <li>✔ Botón directo de contacto</li>
+          </ul>
+    
+          <a class="btn" href="https://evytapiapsicologa.com" target="_blank">
+            Ver proyecto
+          </a>
+        </div>
+    
+        <div class="project-preview">
+          <div class="preview-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="preview-content">
+            <h4>Evy Tapia</h4>
+            <p>Psicóloga clínica y psicoterapeuta online</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section id="proceso">
       <h2 class="section-title">¿Cómo empezamos?</h2>
       <p class="section-subtitle">
