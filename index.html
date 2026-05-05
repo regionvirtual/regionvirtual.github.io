@@ -132,6 +132,38 @@
       font-size: 18px;
     }
 
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .trust-card {
+      background: #1e293b;
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: 0.3s ease;
+    }
+
+    .trust-card:hover {
+      transform: translateY(-6px);
+      border-color: #38bdf8;
+    }
+
+    .trust-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #38bdf8;
+    }
+
+    .trust-card p {
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+    
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -310,6 +342,10 @@
         grid-template-columns: 1fr;
       }
 
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .project-card {
         grid-template-columns: 1fr;
         padding: 26px;
@@ -357,6 +393,48 @@
       </div>
     </section>
 
+    <section id="confianza">
+      <h2 class="section-title">¿Por qué elegir AND Web Studio?</h2>
+      <p class="section-subtitle">
+        No se trata solo de tener una página bonita. Creamos una presencia online clara,
+        profesional y pensada para que tus clientes entiendan rápido lo que ofreces.
+      </p>
+
+      <div class="trust-grid">
+        <div class="trust-card">
+          <h3>Diseño profesional</h3>
+          <p>
+            Creamos una web visualmente cuidada, coherente con tu negocio y preparada
+            para transmitir confianza desde el primer vistazo.
+          </p>
+        </div>
+
+        <div class="trust-card">
+          <h3>Adaptada a móvil</h3>
+          <p>
+            Tu página se verá correctamente en móvil, tablet y ordenador, para que tus
+            clientes puedan encontrarte desde cualquier dispositivo.
+          </p>
+        </div>
+
+        <div class="trust-card">
+          <h3>Contacto directo</h3>
+          <p>
+            Integramos botones de WhatsApp y llamadas a la acción claras para facilitar
+            que las visitas se conviertan en contactos reales.
+          </p>
+        </div>
+
+        <div class="trust-card">
+          <h3>Acompañamiento simple</h3>
+          <p>
+            Te guiamos durante el proceso, sin complicaciones técnicas, para que sepas
+            qué se está haciendo y por qué.
+          </p>
+        </div>
+      </div>
+    </section>
+    
     <section id="servicios">
       <h2 class="section-title">Servicios</h2>
       <p class="section-subtitle">
