@@ -131,77 +131,20 @@
     }
 
     /* --- CONTEÚDO (HERO, SEÇÕES, CARDS) --- */
-    section {
-      padding: 60px 8%;
-    }
+    section { padding: 60px 8%; }
 
-    .hero {
-      padding: 80px 8% 50px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: 54px;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      color: #38bdf8;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #cbd5e1;
-      margin-bottom: 32px;
-      max-width: 650px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #22c55e;
-      color: #ffffff;
-      padding: 15px 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #16a34a;
-      transform: translateY(-2px);
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+    .hero { padding: 80px 8% 50px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+    .hero h1 { font-size: 54px; line-height: 1.1; margin-bottom: 24px; }
+    .hero h1 span { color: #38bdf8; }
+    .hero p { font-size: 20px; color: #cbd5e1; margin-bottom: 32px; max-width: 650px; }
     
-    .btn.secondary {
-      background: transparent;
-      color: #38D9FF;
-      border: 1px solid #38D9FF;
-    }
-    
-    .btn.secondary:hover {
-      background: rgba(56, 217, 255, 0.12);
-      color: #ffffff;
-    }
-    
-    .hero-card {
-      background: linear-gradient(145deg, #1e293b, #111827);
-      padding: 35px;
-      border-radius: 24px;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
+    .btn { display: inline-block; background: #22c55e; color: #ffffff; padding: 15px 26px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: 0.3s ease; }
+    .btn:hover { background: #16a34a; transform: translateY(-2px); }
+    .btn.secondary { background: transparent; color: #38D9FF; border: 1px solid #38D9FF; }
+    .btn.secondary:hover { background: rgba(56, 217, 255, 0.12); color: #ffffff; }
 
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .hero-card { background: linear-gradient(145deg, #1e293b, #111827); padding: 35px; border-radius: 24px; box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.08); }
     .hero-card h2 { font-size: 28px; margin-bottom: 18px; color: #38bdf8; }
     .hero-card ul { list-style: none; }
     .hero-card li { margin-bottom: 14px; color: #e5e7eb; }
@@ -218,6 +161,7 @@
     .service-card .tag { color: #38bdf8; font-weight: 700; margin-bottom: 18px; }
     .service-card ul { list-style: none; margin-top: 20px; }
     .service-card li { margin-bottom: 12px; color: #e5e7eb; }
+    .service-description { color: #cbd5e1; font-size: 16px; margin-bottom: 20px; }
 
     .project-card { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 0.9fr; gap: 32px; align-items: center; background: #1e293b; padding: 36px; border-radius: 26px; border: 1px solid rgba(255, 255, 255, 0.08); }
     .project-preview { background: linear-gradient(145deg, #f8fafc, #dbeafe); border-radius: 22px; overflow: hidden; min-height: 280px; color: #0f172a; }
@@ -347,9 +291,13 @@
         <div class="service-card">
           <h3>Landing Page</h3>
           <p class="tag">Ideal para empezar</p>
+          <p class="service-description">
+            Para emprendedores o pequeños negocios que necesitan una presencia online simple,
+            profesional y lista para recibir contactos.
+          </p>
           <ul>
-            <li>✔ Página única</li>
-            <li>✔ Diseño profesional</li>
+            <li>✔ Página única clara y directa</li>
+            <li>✔ Diseño profesional adaptado a tu negocio</li>
             <li>✔ Botón de contacto por WhatsApp</li>
             <li>✔ Optimizada para móvil</li>
           </ul>
@@ -358,9 +306,13 @@
         <div class="service-card">
           <h3>Web Profesional</h3>
           <p class="tag">Para negocios que quieren crecer</p>
+          <p class="service-description">
+            Para negocios que quieren explicar mejor sus servicios, generar más confianza
+            y tener una web más completa y estratégica.
+          </p>
           <ul>
-            <li>✔ Hasta 5 secciones</li>
-            <li>✔ Diseño personalizado</li>
+            <li>✔ Hasta 5 secciones personalizadas</li>
+            <li>✔ Diseño adaptado a tu marca</li>
             <li>✔ Formularios de contacto</li>
             <li>✔ SEO básico</li>
             <li>✔ Integración con WhatsApp</li>
@@ -370,15 +322,18 @@
         <div class="service-card">
           <h3>Web Premium</h3>
           <p class="tag">Para posicionarte en serio</p>
+          <p class="service-description">
+            Para marcas o profesionales que quieren una web más completa, cuidada y preparada
+            para destacar frente a la competencia.
+          </p>
           <ul>
             <li>✔ Web completa con estructura estratégica</li>
-            <li>✔ Copy básico optimizado</li>
+            <li>✔ Copy básico orientado a conversión</li>
             <li>✔ SEO mejorado</li>
             <li>✔ Velocidad optimizada</li>
             <li>✔ Asesoría personalizada</li>
           </ul>
         </div>
-      </div>
     </section>
 
     <section id="portfolio">
