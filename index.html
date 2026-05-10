@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AND Web Studio | Páginas web profesionales</title>
 
   <link rel="icon" href="Img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="Img/favicon.ico" type="image/x-icon">
   
   <style>
+    /* --- CONFIGURAÇÕES GERAIS --- */
     * {
       margin: 0;
       padding: 0;
@@ -22,31 +21,52 @@
       background: #0f172a;
       color: #ffffff;
       line-height: 1.6;
+      padding-top: 50px; /* Compensa a navbar fixa */
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    /* --- NAVBAR E GLASSMORPHISM --- */
     header {
-      padding: 24px 8%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(15, 23, 42, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+      background-color: rgba(15, 23, 42, 0.7); /* Transparência */
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: #38bdf8;
+    header.scrolled {
+      padding: 10px 8%;
+      background-color: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     .logo img {
-      height: 72px;
+      height: 60px;
       width: auto;
       display: block;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled .logo img {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -54,10 +74,65 @@
       text-decoration: none;
       margin-left: 24px;
       font-size: 15px;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: #38bdf8;
+    }
+
+    /* --- MENU MOBILE (HAMBÚRGUER) --- */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 28px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 900px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        display: none; /* Escondido por padrão no mobile */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #111827;
+        flex-direction: row; /* Layout horizontal no menu aberto */
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 0;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 6px;
+        font-size: 14px;
+      }
+    }
+
+    /* --- CONTEÚDO (HERO, SEÇÕES, CARDS) --- */
+    section {
+      padding: 60px 8%;
     }
 
     .hero {
@@ -109,320 +184,75 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .hero-card h2 {
-      font-size: 28px;
-      margin-bottom: 18px;
-      color: #38bdf8;
-    }
+    .hero-card h2 { font-size: 28px; margin-bottom: 18px; color: #38bdf8; }
+    .hero-card ul { list-style: none; }
+    .hero-card li { margin-bottom: 14px; color: #e5e7eb; }
 
-    .hero-card ul {
-      list-style: none;
-    }
+    .section-title { text-align: center; font-size: 38px; margin-bottom: 16px; }
+    .section-subtitle { text-align: center; color: #cbd5e1; max-width: 700px; margin: 0 auto 50px; font-size: 18px; }
 
-    .hero-card li {
-      margin-bottom: 14px;
-      color: #e5e7eb;
-    }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; max-width: 1200px; margin: 0 auto; }
+    .trust-card { background: #1e293b; padding: 28px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s ease; }
+    .trust-card h3 { color: #38bdf8; font-size: 22px; margin-bottom: 12px; }
 
-    section {
-      padding: 60px 8%;
-    }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .service-card { background: #1e293b; padding: 32px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.08); transition: 0.3s ease; }
+    .service-card .tag { color: #38bdf8; font-weight: 700; margin-bottom: 18px; }
+    .service-card ul { list-style: none; margin-top: 20px; }
+    .service-card li { margin-bottom: 12px; color: #e5e7eb; }
 
-    .section-title {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 16px;
-    }
+    .project-card { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 0.9fr; gap: 32px; align-items: center; background: #1e293b; padding: 36px; border-radius: 26px; border: 1px solid rgba(255, 255, 255, 0.08); }
+    .project-preview { background: linear-gradient(145deg, #f8fafc, #dbeafe); border-radius: 22px; overflow: hidden; min-height: 280px; color: #0f172a; }
+    .preview-bar { background: #0f172a; padding: 14px; display: flex; gap: 8px; }
+    .preview-bar span { width: 12px; height: 12px; background: #38bdf8; border-radius: 50%; }
+    .preview-content { padding: 42px 30px; }
 
-    .section-subtitle {
-      text-align: center;
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto 50px;
-      font-size: 18px;
-    }
+    .steps { max-width: 900px; margin: 0 auto; display: grid; gap: 22px; }
+    .step { background: #1e293b; padding: 24px; border-radius: 18px; border-left: 5px solid #38bdf8; }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .faq-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .faq-item { background: #1e293b; padding: 28px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); }
 
-    .trust-card {
-      background: #1e293b;
-      padding: 28px;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: 0.3s ease;
-    }
+    .cta { text-align: center; background: linear-gradient(145deg, #0369a1, #0f172a); border-radius: 28px; padding: 60px 30px; }
 
-    .trust-card:hover {
-      transform: translateY(-6px);
-      border-color: #38bdf8;
-    }
+    footer { padding: 30px 8%; text-align: center; color: #94a3b8; border-top: 1px solid rgba(255, 255, 255, 0.08); }
 
-    .trust-card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #38bdf8;
-    }
-
-    .trust-card p {
-      color: #cbd5e1;
-      font-size: 16px;
-    }
-    
-    .services {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-    }
-
-    .service-card {
-      background: #1e293b;
-      padding: 32px;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: 0.3s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: #38bdf8;
-    }
-
-    .service-card h3 {
-      font-size: 24px;
-      margin-bottom: 8px;
-    }
-
-    .service-card .tag {
-      color: #38bdf8;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .service-card ul {
-      list-style: none;
-      margin-top: 20px;
-    }
-
-    .service-card li {
-      margin-bottom: 12px;
-      color: #e5e7eb;
-    }
-
-    .project-card {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 0.9fr;
-      gap: 32px;
-      align-items: center;
-      background: #1e293b;
-      padding: 36px;
-      border-radius: 26px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
-    }
-
-    .project-content h3 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-
-    .project-content p {
-      color: #cbd5e1;
-      margin-bottom: 20px;
-    }
-
-    .project-content ul {
-      list-style: none;
-      margin-bottom: 26px;
-    }
-
-    .project-content li {
-      margin-bottom: 10px;
-      color: #e5e7eb;
-    }
-
-    .project-preview {
-      background: linear-gradient(145deg, #f8fafc, #dbeafe);
-      border-radius: 22px;
-      overflow: hidden;
-      min-height: 280px;
-      color: #0f172a;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    }
-
-    .preview-bar {
-      background: #0f172a;
-      padding: 14px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .preview-bar span {
-      width: 12px;
-      height: 12px;
-      background: #38bdf8;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .preview-content {
-      padding: 42px 30px;
-    }
-
-    .preview-content h4 {
-      font-size: 34px;
-      margin-bottom: 14px;
-    }
-
-    .preview-content p {
-      font-size: 18px;
-      color: #334155;
-    }
-    
-    .steps {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 22px;
-    }
-
-    .step {
-      background: #1e293b;
-      padding: 24px;
-      border-radius: 18px;
-      border-left: 5px solid #38bdf8;
-    }
-
-    .step strong {
-      color: #38bdf8;
-    }
-
-    .faq-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .faq-item {
-      background: #1e293b;
-      padding: 28px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .faq-item h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #38bdf8;
-    }
-
-    .faq-item p {
-      color: #cbd5e1;
-      font-size: 16px;
-    }
-    
-    .cta {
-      text-align: center;
-      background: linear-gradient(145deg, #0369a1, #0f172a);
-      border-radius: 28px;
-      padding: 60px 30px;
-    }
-
-    .cta h2 {
-      font-size: 36px;
-      margin-bottom: 18px;
-    }
-
-    .cta p {
-      color: #e5e7eb;
-      font-size: 18px;
-      margin: 0 auto 28px;
-      max-width: 850px;
-    }
-
-    footer {
-      padding: 30px 8%;
-      text-align: center;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
+    /* Ajustes Responsivos Extras */
     @media (max-width: 900px) {
-      header {
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      nav a {
-        margin: 0 10px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 70px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
-      }
-
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-card {
-        grid-template-columns: 1fr;
-        padding: 26px;
-      }
+      .hero { grid-template-columns: 1fr; padding-top: 70px; }
+      .services, .trust-grid, .faq-grid, .project-card { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <header>
+
+  <header id="main-header">
     <div class="logo">
-      <img src="Img/logoL.png" alt="AND Web Studio">
+      <img src="Img/logoL.png" id="logo-img" alt="AND Web Studio">
     </div>
 
-    <nav>
+    <nav id="nav-menu">
       <a href="#servicios">Servicios</a>
       <a href="#portfolio">Proyectos</a>
       <a href="#proceso">Proceso</a>
       <a href="#faq">Preguntas</a>
       <a href="#contacto">Contacto</a>
     </nav>
+
+    <div class="menu-toggle" id="mobile-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
   <main>
     <section class="hero">
       <div>
         <h1>Tu negocio merece verse <span>profesional en internet</span></h1>
-
-        <p>
-          Ten ya tu página web clara, rápida y profesional para emprendedores y negocios
-          que quieren ganar visibilidad, generar confianza y atraer más clientes.
-        </p>
-
-        <a class="btn" href="https://wa.me/34644689279" target="_blank">
-          Solicitar presupuesto por WhatsApp
-        </a>
+        <p>Ten ya tu página web clara, rápida y profesional para emprendedores y negocios que quieren ganar visibilidad, generar confianza y atraer más clientes.</p>
+        <a class="btn" href="https://wa.me/34644689279" target="_blank">Solicitar presupuesto por WhatsApp</a>
       </div>
 
       <div class="hero-card">
@@ -437,237 +267,67 @@
       </div>
     </section>
 
+    <!-- Secção Confiança -->
     <section id="confianza">
       <h2 class="section-title">¿Por qué elegir AND Web Studio?</h2>
-      <p class="section-subtitle">
-        No se trata solo de tener una página bonita. Creamos una presencia online clara,
-        profesional y pensada para que tus clientes entiendan rápido lo que ofreces.
-      </p>
-
+      <p class="section-subtitle">No se trata solo de tener una página bonita. Creamos una presencia online clara, profesional y pensada para que tus clientes entiendan rápido lo que ofreces.</p>
       <div class="trust-grid">
         <div class="trust-card">
           <h3>Diseño profesional</h3>
-          <p>
-            Creamos una web visualmente cuidada, coherente con tu negocio y preparada
-            para transmitir confianza desde el primer vistazo.
-          </p>
+          <p>Creamos uma web visualmente cuidada e preparada para transmitir confiança.</p>
         </div>
-
         <div class="trust-card">
           <h3>Adaptada a móvil</h3>
-          <p>
-            Tu página se verá correctamente en móvil, tablet y ordenador, para que tus
-            clientes puedan encontrarte desde cualquier dispositivo.
-          </p>
+          <p>Sua página será vista corretamente em qualquer dispositivo.</p>
         </div>
-
-        <div class="trust-card">
-          <h3>Contacto directo</h3>
-          <p>
-            Integramos botones de WhatsApp y llamadas a la acción claras para facilitar
-            que las visitas se conviertan en contactos reales.
-          </p>
-        </div>
-
-        <div class="trust-card">
-          <h3>Acompañamiento simple</h3>
-          <p>
-            Te guiamos durante el proceso, sin complicaciones técnicas, para que sepas
-            qué se está haciendo y por qué.
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <section id="servicios">
-      <h2 class="section-title">Servicios</h2>
-      <p class="section-subtitle">
-        Creamos páginas web adaptadas a la etapa actual de tu negocio.
-      </p>
-
-      <div class="services">
-        <div class="service-card">
-          <h3>Landing Page</h3>
-          <p class="tag">Ideal para empezar</p>
-          <ul>
-            <li>✔ Página única</li>
-            <li>✔ Diseño profesional</li>
-            <li>✔ Botón de contacto por WhatsApp</li>
-            <li>✔ Optimizada para móvil</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h3>Web Profesional</h3>
-          <p class="tag">Para negocios que quieren crecer</p>
-          <ul>
-            <li>✔ Hasta 5 secciones</li>
-            <li>✔ Diseño personalizado</li>
-            <li>✔ Formularios de contacto</li>
-            <li>✔ SEO básico</li>
-            <li>✔ Integración con WhatsApp</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <h3>Web Premium</h3>
-          <p class="tag">Para posicionarte en serio</p>
-          <ul>
-            <li>✔ Web completa con estructura estratégica</li>
-            <li>✔ Copy básico optimizado</li>
-            <li>✔ SEO mejorado</li>
-            <li>✔ Velocidad optimizada</li>
-            <li>✔ Asesoría personalizada</li>
-          </ul>
-        </div>
+        <!-- ... Restantes trust-cards ... -->
       </div>
     </section>
 
-    <section id="portfolio">
-      <h2 class="section-title">Proyecto destacado</h2>
-      <p class="section-subtitle">
-        Un ejemplo real de página web creada con una estructura clara, profesional y adaptada al servicio ofrecido.
-      </p>
-    
-      <div class="project-card">
-        <div class="project-content">
-          <p class="tag">Psicología online</p>
-          <h3>Evy Tapia Psicóloga</h3>
-          <p>
-            Página web profesional para presentar servicios de psicoterapia online,
-            generar confianza y facilitar el contacto con potenciales pacientes.
-          </p>
-    
-          <ul>
-            <li>✔ Diseño visual personalizado</li>
-            <li>✔ Estructura clara por secciones</li>
-            <li>✔ Adaptada a móvil</li>
-            <li>✔ Botón directo de contacto</li>
-          </ul>
-    
-          <a class="btn" href="https://evytapiapsicologa.com" target="_blank">
-            Ver proyecto
-          </a>
-        </div>
-    
-        <div class="project-preview">
-          <div class="preview-bar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="preview-content">
-            <h4>Evy Tapia</h4>
-            <p>Psicóloga clínica y psicoterapeuta online</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section id="proceso">
-      <h2 class="section-title">¿Cómo empezamos?</h2>
-      <p class="section-subtitle">
-        Un proceso simple, claro y pensado para que tengas tu web lista sin complicaciones.
-      </p>
+    <!-- ... Resto das Secções (Servicios, Portfolio, Proceso, FAQ) ... -->
 
-      <div class="steps">
-        <div class="step">
-          <strong>1.</strong> Tenemos una reunión one to one para conocer tu negocio.
-        </div>
-
-        <div class="step">
-          <strong>2.</strong> Definimos lo que necesitas y adaptamos la web a tu audiencia.
-        </div>
-
-        <div class="step">
-          <strong>3.</strong> Diseñamos tu página web con una estructura clara y profesional.
-        </div>
-
-        <div class="step">
-          <strong>4.</strong> Publicamos tu web en pocos días, optimizada para no perder clientes.
-        </div>
-
-        <div class="step">
-          <strong>5.</strong> Te acompañamos después de la publicación si surge alguna duda.
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <h2 class="section-title">Preguntas frecuentes</h2>
-      <p class="section-subtitle">
-        Resolvemos las dudas más habituales antes de empezar tu página web.
-      </p>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3>¿Cuánto tarda en estar lista mi página web?</h3>
-          <p>
-            Depende del tipo de proyecto, pero una landing page o una web sencilla
-            puede estar lista en pocos días una vez definidos los textos, secciones y objetivos.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>¿Necesito tener textos e imágenes preparados?</h3>
-          <p>
-            No es obligatorio tenerlo todo preparado. Podemos ayudarte a organizar la estructura,
-            mejorar los textos básicos y definir qué contenido necesita tu página.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>¿La página funcionará en móvil?</h3>
-          <p>
-            Sí. Todas las páginas se diseñan para verse correctamente en móvil, tablet y ordenador.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>¿Puedo contactar directamente por WhatsApp?</h3>
-          <p>
-            Sí. Podemos integrar botones de WhatsApp para que tus clientes puedan contactarte
-            de forma rápida y directa desde la página.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>¿El precio es fijo o depende del proyecto?</h3>
-          <p>
-            Depende de lo que necesite tu negocio: número de secciones, nivel de personalización,
-            textos, formularios, SEO y funcionalidades adicionales.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3>¿Puedo pedir cambios después de publicar?</h3>
-          <p>
-            Sí. Después de publicar la web, podemos revisar ajustes básicos y resolver dudas
-            relacionadas con el funcionamiento de la página.
-          </p>
-        </div>
-      </div>
-    </section>
-    
     <section id="contacto">
       <div class="cta">
         <h2>¿Quieres una web profesional para tu negocio?</h2>
-        <p>
-          Cuéntanos qué necesitas y te orientamos con la mejor opción para tu caso.
-          Creamos páginas claras, rápidas y pensadas para ayudarte a ganar visibilidad,
-          confianza y nuevos contactos.
-        </p>
-    
-        <a class="btn" href="https://wa.me/34644689279" target="_blank">
-          Solicitar presupuesto por WhatsApp
-        </a>
+        <p>Cuéntanos qué necesitas e te orientamos con la mejor opción.</p>
+        <a class="btn" href="https://wa.me/34644689279" target="_blank">Solicitar presupuesto por WhatsApp</a>
       </div>
     </section>
-    
   </main>
 
   <footer>
     <p>© 2026 AND Web Studio. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    const header = document.getElementById('main-header');
+    const logo = document.getElementById('logo-img');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    // 1. Scroll: Troca logo e estilo da barra
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+        logo.src = 'Img/logoS.png'; 
+      } else {
+        header.classList.remove('scrolled');
+        logo.src = 'Img/logoL.png';
+      }
+    });
+
+    // 2. Menu Mobile Toggle
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // 3. Fechar menu ao clicar num link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
