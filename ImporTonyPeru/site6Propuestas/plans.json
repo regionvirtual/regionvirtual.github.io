@@ -1,0 +1,104 @@
+[
+  {
+    "n": 1,
+    "title": "Presentación esencial",
+    "price": 500,
+    "products": 4,
+    "photos": 0,
+    "pages": "1 estándar",
+    "seo": "Base",
+    "extra": "WhatsApp general",
+    "intro": "Presenta tu empresa y cuatro productos destacados en una página sencilla.",
+    "new": [
+      "Una página con presentación, contacto y 4 productos estáticos",
+      "Foto, nombre, descripción corta y precio proporcionado por Importony",
+      "Botón general de WhatsApp siempre visible"
+    ],
+    "dias_habiles": "3–5"
+  },
+  {
+    "n": 2,
+    "title": "Catálogo con fichas",
+    "price": 1200,
+    "products": 16,
+    "photos": 0,
+    "pages": "1 avanzada",
+    "seo": "Base",
+    "extra": "WhatsApp por producto",
+    "intro": "El comprador abre una ficha y consulta por una pieza concreta.",
+    "new": [
+      "Hasta 16 productos con ficha dentro del catálogo",
+      "Consulta por WhatsApp con el nombre del producto ya escrito",
+      "Foto, descripción, referencia y datos confirmados por Importony"
+    ],
+    "dias_habiles": "7–10"
+  },
+  {
+    "n": 3,
+    "title": "Exploración de productos",
+    "price": 2000,
+    "products": 32,
+    "photos": 0,
+    "pages": "1 avanzada",
+    "seo": "Base",
+    "extra": "Explorar productos",
+    "intro": "Facilita encontrar una pieza por su nombre o referencia y verla en grande.",
+    "new": [
+      "Hasta 32 productos",
+      "Buscador por nombre y referencia",
+      "Lupa para ampliar la foto de cada producto"
+    ],
+    "dias_habiles": "10–15"
+  },
+  {
+    "n": 4,
+    "title": "Imagen y cotizaciones",
+    "price": 3000,
+    "products": 64,
+    "photos": 10,
+    "pages": "1 avanzada + 1 estándar",
+    "seo": "Editorial",
+    "extra": "Cotizaciones por cantidad",
+    "intro": "Reúne varias piezas y sus cantidades en una sola consulta por WhatsApp.",
+    "new": [
+      "Hasta 64 productos y tratamiento de 10 fotos",
+      "Lista de cotización con cantidades y envío a WhatsApp",
+      "1 página adicional y revisión editorial de los textos incluidos"
+    ],
+    "dias_habiles": "15–20"
+  },
+  {
+    "n": 5,
+    "title": "Catálogo organizado",
+    "price": 3800,
+    "products": 96,
+    "photos": 20,
+    "pages": "1 avanzada + 2 estándar",
+    "seo": "Google Search Console",
+    "extra": "Categorías y orden alfabético",
+    "intro": "Permite filtrar por categoría y ordenar los productos de la A a la Z o de la Z a la A.",
+    "new": [
+      "Hasta 96 productos y tratamiento de 20 fotos",
+      "Filtros de categoría y orden alfabético ascendente y descendente",
+      "2 páginas adicionales y configuración inicial de Google Search Console"
+    ],
+    "dias_habiles": "20–25"
+  },
+  {
+    "n": 6,
+    "title": "Favoritos y seguimiento",
+    "price": 4400,
+    "products": 128,
+    "photos": 30,
+    "pages": "1 avanzada + 4 estándar",
+    "seo": "Google Analytics",
+    "extra": "Favoritos en el navegador",
+    "intro": "El comprador guarda sus piezas favoritas y tú puedes conocer el uso de tu web.",
+    "new": [
+      "Hasta 128 productos y tratamiento de 30 fotos",
+      "Favoritos guardados en el mismo navegador, sin crear cuenta",
+      "4 páginas adicionales y configuración inicial de Google Analytics"
+    ],
+    "dias_habiles": "25–30"
+  }
+]
